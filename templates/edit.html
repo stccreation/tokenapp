@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <style>
+            .cont{
+                display:block;
+                justify-content:center;
+                background-color:grey;
+        
+                margin-left:25%;
+                margin-right:25%;
+            }
+            .but{
+                margin-left:20%;
+                width: 200px;
+                height: 80px;
+        
+            }
+            .form{
+                text-align:center;
+            }
+            label{
+                font-size:30px
+            }
+            input{
+                width:300px;
+                height:50px;
+            }
+        </style>
+        <title>Edit</title>
+    </head>
+    <body>
+<a href="/"><button>Back</button></a>
+
+        <div class="cont">
+            <div class="form" id="sham" >
+                <form method="get" action="/edit/save">
+                    <h2> Dr {{content.dr}}</h2><br>
+                    <label for="token">Choose Token</label>
+                    <select name="tokenlist" id="token" style="height:50px;width:50px" required>
+                        {% if token_listl %}
+                            {% for i in token_listl %}
+                            <option value="{{i}}" {% if i == content.token: %} selected {% endif %}>{{i}}</option>
+                            {% endfor %}
+                        {% endif %}
+                    </select><br>
+                    <label> Name</label>
+                    <input name="name" placeholder="Name" type="text" value="{{content.name}}" required><br>
+                    <br><br>
+                    <label>Phone Number</label>
+                    <input name="mnumber" placeholder="Phone Number" type="number" value="{{content.number}}" required><br><br>
+                    <button type="submit" name='done' value="save" style="height:50px;width:150px">Save</button>
+                    <button type="submit" name="done" value="delete" style="height:50px;width:150px">Delete</button>
+        
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

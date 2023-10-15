@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Today</title>
+  <style>
+    .cont{
+        display:block;
+        justify-content:center;
+        background-color:grey;
+        }
+    table{
+        border-collapse:collapse;
+        border:1px solid black;
+        width:99%;
+        font-size:25px
+    }
+    tr,td,th{border:1px solid black}
+
+  </style>
+</head>
+<body>
+<a href="/"><button>Back</button></a>
+
+  <div class="cont">
+    <div style="width:50%;float:left;text-align:center">
+        <h1>Dr Sharafudheen</h1>
+        {% if shar_patient_list %}
+        <table>
+            <tr>
+            <th style="width:10%">Token No</th>
+            <th>Name</th>
+            <th style="width:40%">Phone Number</th>
+            </tr>
+            {% for i in shar_patient_list %}
+            <tr>
+                <td><a href="/edit?token={{i.token}}&name={{i.name}}&number={{i.number}}&date={{i.date}}&dr={{i.dr}}">{{i.token}}</a></td>
+                <td>{{i.name}}</td>
+                <td>{{i.number}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+    </div>
+    <div style="width:50%;float:right;text-align:center">
+        <h1>Dr Shamsiya</h1>
+        {% if sham_patient_list %}
+        <table>
+            <tr>
+            <th style="width:10%">Token No</th>
+            <th>Name</th>
+            <th style="width:40%">Phone Number</th>
+            </tr>
+            {% for i in sham_patient_list %}
+            <tr>
+                <td><a href="/edit?token={{i.token}}&name={{i.name}}&number={{i.number}}&date={{i.date}}&dr={{i.dr}}">{{i.token}}</a></td>
+                <td>{{i.name}}</td>
+                <td>{{i.number}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+    </div>
+
+  </div>
+</body>
+</html>
